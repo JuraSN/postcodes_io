@@ -1,14 +1,5 @@
-require 'postcodes_io/base'
-
 module Postcodes
-  class Postcode < Base
-
-    attr_reader :info
-
-    def initialize(info)
-      @info = info
-    end
-
+  class Base
     # allow accessing info values with dot notation
     def method_missing(name, *args, &block)
       return @info[name.to_s] if @info.key? name.to_s
